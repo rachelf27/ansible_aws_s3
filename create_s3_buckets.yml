@@ -1,0 +1,18 @@
+---
+- hosts: local
+  connection: local
+  vars:
+    bucket_name: "{{ bucket_name }}"
+  vars_files:
+    - env_vars/aws_creds.yml
+    - env_vars/env.yml
+  tasks:
+    - name: Provision new S3 bucket
+      aws_s3:
+        bucket: "{{ bucket_name }}"
+        aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
+        aws_secret_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"
+        region: "{{ lookup('env','AWS_DEFAULT_REGION') }}"
+        mode: create
+        ignore_nonexistent_bucket: true
+        permission: public-read
