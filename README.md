@@ -1,6 +1,6 @@
 # AWS Cloud Storage Provisioning
 
-This document is created for provisioning cloud storage buckets in multiple environments using Ansible.
+This project is created for provisioning cloud storage buckets in multiple environments using Ansible.
 
 ## Prerequisites and Environment Setup
 
